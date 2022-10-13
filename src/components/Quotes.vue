@@ -1,18 +1,13 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue';
 import axios from 'axios'
 
-interface IData {
-  title: string,
-  coinOne: number,
-  coinTwo: number,
-  simbol: string
-}
+const coinOne = ref('1.00')
+const coinTwo = ref('1.00')
 
-const data: IData = {
-  title: 'Contação de Moedas',
-  coinOne: 1.00,
-  coinTwo: 1.00,
-  simbol: "$"
+function changeCoin(event: any) {
+  console.log(event);
+  
 }
     
 async function get() {
@@ -21,14 +16,13 @@ async function get() {
 }
 
 
-
 </script>
 
 <template>
   <div class="item flex flex-col justify-center md:w-[38rem] sm:w-[30rem] w-[95%] mb-[8rem] sm:mb-[0rem]">
 
     <header class=" flex justify-center items-center bg-emerald-600 h-[7rem] rounded-t-xl">
-      <h1 class="text-[22pt] text-center font-light text-white font-mont">{{data.title}}</h1>
+      <h1 class="text-[22pt] text-center font-light text-white font-mont">Convensão de Moedas</h1>
     </header>
 
     <div class="bg-[#FCFCFC] drop-shadow-md p-4">
@@ -37,13 +31,16 @@ async function get() {
 
         <div class="text-2xl text-center flex-col grow w-[17rem]">
 
-          <select name="select" class="text-center text-[14pt] outline-none">
+          <select name="select" class="text-center text-[14pt] border-none focus:ring-0 py-1 bg-transparent">
             <option value="valor1" class="text-[11pt] text-left" selected>Real</option>
             <option value="valor2" class="text-[11pt] text-left">Dolar</option>
             <option value="valor3" class="text-[11pt] text-left">Euro</option>
           </select>
-          <div class="flex">
-            <h3 class="w-full text-[20pt]">R$1.000</h3>
+          <div class="flex justify-center items-center">
+            <h3 class="w-10">R$</h3>
+            <input type="text" class="border-none focus:rign-0 bg-transparent focus:ring-0 w-[60%] px-1 py-1"
+            :value="coinOne"
+            @keypresss="changeCoin(e)">
             <!-- <input type="text" value="1.00" class="bg-[#FCFCFC] w-full">   -->
           </div>
         </div>
@@ -52,13 +49,15 @@ async function get() {
 
         <div class="text-2xl text-center flex-col grow w-[17rem]">
 
-          <select name="select" class="text-center text-[14pt] outline-none">
+          <select name="select" class="text-center text-[14pt] border-none focus:ring-0 py-1 bg-transparent">
             <option value="valor1" class="text-[11pt] text-left">Real</option>
             <option value="valor2" class="text-[11pt] text-left" selected>Dolar</option>
             <option value="valor3" class="text-[11pt] text-left">Euro</option>
           </select>
-          <div class="flex justify-center">
-            <h3 class="w-full text-[20pt]">$1.0000</h3>
+          <div class="flex justify-center items-center">
+            <h3 class="w-10">$</h3>
+            <input type="text" class="border-none focus:rign-0 bg-transparent focus:ring-0 w-[60%] px-1 py-1"
+            :value="coinTwo" >
             <!-- <input type="text" value="1.00" class="bg-[#FCFCFC] w-full">   -->
           </div>
         </div>
