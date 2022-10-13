@@ -20,13 +20,12 @@ async function get() {
     console.log(get);
 }
 
-get()
 
 
 </script>
 
 <template>
-  <div class="item flex flex-col justify-center w-[38rem] ">
+  <div class="item flex flex-col justify-center md:w-[38rem] sm:w-[30rem] w-[95%] mb-[8rem] sm:mb-[0rem]">
 
     <header class=" flex justify-center items-center bg-emerald-600 h-[7rem] rounded-t-xl">
       <h1 class="text-[22pt] text-center font-light text-white font-mont">{{data.title}}</h1>

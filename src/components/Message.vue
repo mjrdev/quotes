@@ -4,7 +4,7 @@ function openInfo(): void {
 }
 </script>
 <template>
-  <a href="http://github.com/mjrdev/quotes" class="absolute opacity-0 bg-white w-[20rem] h-[6rem] bottom-8 right-8 rounded-2xl flex flex-col items-center justify-center animate-opacity"
+  <a href="http://github.com/mjrdev/quotes" class="absolute opacity-0 bg-white w-[20rem] h-[6rem] bottom-8 lg:right-8 rounded-2xl flex flex-col items-center justify-center animate-opacity"
   style="animation-fill-mode: forwards">
     <div class="flex items-center justify-center gap-x-2">
       <i class="devicon-github-original text-xl align-middle"></i>
