@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
+/** @type {import('vite').UserConfig} */
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -10,5 +11,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  server: {
+    base: '/quotes',
+    origin: '/quotes',
+    port: 3000
+  },
+  base: "/quotes",
 })
