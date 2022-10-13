@@ -1,6 +1,8 @@
 {
   "name": "quotes",
   "version": "0.0.0",
+  "homepage": "/quotes",
+  "baseURL": "/quotes",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
