@@ -1,8 +1,7 @@
 {
   "name": "quotes",
   "version": "0.0.0",
-  "homepage": "/quotes",
-  "baseURL": "/quotes",
+  "homepage": "https://mjrdev.github.io/quotes/",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
