@@ -17,6 +17,9 @@ module.exports = {
           'from': { opacity: '0' },
           'to': { opacity: '100' },
         }
+      },
+      colors: {
+        'green-app': '#13b453'
       }
     },
   },

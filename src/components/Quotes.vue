@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import type { Ref, ComputedRef } from 'vue';
-import quotes from './quotes';
+import Quotes from './quotes';
+import axios from 'axios';
 
 import { coins } from './coins';
 import type { Coin, Current } from './coins';
@@ -14,28 +15,34 @@ const invertValue: Ref<Current> = ref({ value: 5.29 });
 const inputCoinOne: Ref<Coin> = ref(coin1);
 const inputCoinTwo: Ref<Coin> = ref(coin2);
 
-function changeCoin(event: EventListenerOptions, value: number): void {
+function changeCoin(event: EventListenerOptions, item: number): void {
 
-  if(value === 1) {
+  if(item === 1) {
     let newValue = inputCoinOne.value.defaultValue * currency.value.value;
     // @ts-ignore
     inputCoinTwo.value.defaultValue = newValue.toFixed(2);
   }
-  if(value === 2) {
+  if(item === 2) {
     let newValue = inputCoinTwo.value.defaultValue * invertValue.value.value;
     // @ts-ignore
     inputCoinOne.value.defaultValue = newValue.toFixed(2);
   }
 }
 
-quotes(inputCoinOne.value, inputCoinTwo.value)
+onMounted(async (): Promise<void> => {
+  const quota = new Quotes('https://economia.awesomeapi.com.br/json/last/', 'usd-brl');
+
+  const request = await quota.quota('usd-brl');
+  console.log(request);
+  
+})
 
 </script>
 
 <template>
   <div class="item flex flex-col justify-center md:w-[38rem] sm:w-[30rem] w-[95%] mb-[8rem] sm:mb-[0rem]">
 
-    <header class=" flex justify-center items-center bg-emerald-600 h-[7rem] rounded-t-xl">
+    <header class=" flex justify-center items-center bg-green-app h-[7rem] rounded-t-xl">
       <h1 class="text-[22pt] text-center font-light text-white font-mont">text</h1>
     </header>
 

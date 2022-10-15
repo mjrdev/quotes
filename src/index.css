@@ -16,6 +16,6 @@
 
 .main {
   background: rgb(255,255,255);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 52%, #059669 52%);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 63%, rgba(33,204,101,1) 63%, rgba(24,182,86,1) 100%);
 }
 
