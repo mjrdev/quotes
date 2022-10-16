@@ -1,9 +1,9 @@
 import axios from "axios";
 import { coins } from './coins';
 import type { Coin, Current } from './coins';
-export default class Quotes {
+export class Quotes {
   private url: string;
-  private coins: object[];
+  private coins: Coin[];
   public cache: object[];
   private pairDefault: string
 
@@ -22,7 +22,7 @@ export default class Quotes {
     return false
   }
 
-  public async quota(pair: string='usd-brl'): Promise<any> {
+  public async get(pair: string='usd-brl'): Promise<any> {
 
     const next = this.default();
     if(next !== false) {
@@ -33,7 +33,7 @@ export default class Quotes {
 
     async function getQuota(): Promise<any> {
       try {
-        const response = axios.get(url+pair);
+        const response = await axios.get(url+pair);
 
         return response;
       } catch(err: any) {
@@ -45,6 +45,7 @@ export default class Quotes {
 
     const quota: any = await getQuota();
     quota.data.pair = pair;
+    quota.data.pairString = pair.replace('-', '').toUpperCase();
     this.cache.push(quota.data);
 
     return quota.data
