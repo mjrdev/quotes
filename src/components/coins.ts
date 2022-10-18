@@ -3,7 +3,7 @@ export const coins = [
     name: "Real", sigla: "BRL"
   },
   {
-    name: "Dolar", sigla: "USD"
+    name: "Dolar Americano", sigla: "USD"
   },
   {
     name: "Euro", sigla: "EUR"

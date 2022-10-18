@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import { coins } from './coins';
 import type { Coin } from './coins';
-import { toNumber } from '@vue/shared';
 
 const [coin1, coin2, ...cs]: Coin[] = coins;
 
