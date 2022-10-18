@@ -8,7 +8,7 @@ import { coins } from './coins';
 import type { Coin } from './coins';
 import { toNumber } from '@vue/shared';
 
-const [coin1, coin2]: Coin[] = coins;
+const [coin1, coin2, ...cs]: Coin[] = coins;
 
 let quota: Quotes;
 const currency: Ref<any> = ref({});
@@ -113,18 +113,18 @@ onMounted(async (): Promise<void> => {
 
       <main class="font-semibold w-100 flex justify-evenly items-center py-8 pb-12 border-solid border-b-[1px] border-[#f2f2f2]">
 
-        <div class="text-2xl text-center flex-col grow w-[17rem]">
+        <div class="text-center flex-col grow w-[17rem]">
 
           <select name="select" class="text-center text-[14pt] border-none focus:ring-0 py-1 bg-transparent"
           v-model="inputsCoinOne.sigla"
           @change="inputsCoin(1)">
-            <option class="text-[11pt] text-left" v-for="coin in coins" :value="coin.sigla">
+            <option class="text-[11pt] text-center focus:text-left mx-0 px-0" v-for="coin in coins" :value="coin.sigla">
               {{coin.name}}
             </option>
           </select>
           <div class="flex justify-center items-center">
-            <h3 class="w-10 text-[14pt] text-right">{{inputsCoinOne.coin.symbol}}</h3>
-            <input type="number" class="border-none focus:rign-0 bg-[#f1f1f1] mx-1 focus:ring-0 w-[60%] px-1 py-1"
+            <h3 class="w-10 text-[14pt] text-right">{{inputsCoinOne.coin.sigla}}</h3>
+            <input type="number" class="border-none focus:rign-0 bg-[#f1f1f1] mx-1 focus:ring-0 w-[60%] px-1 py-1" min="0"
             v-model="inputsCoinOne.value"
             @input="inputsValue(1)"
             >
@@ -144,8 +144,8 @@ onMounted(async (): Promise<void> => {
             </option>
           </select>
           <div class="flex justify-center items-center">
-            <h3 class="w-10 text-[14pt] text-right">{{inputsCoinTwo.coin.symbol}}</h3>
-            <input type="number" class="border-none focus:rign-0 bg-[#f1f1f1] mx-1 focus:ring-0 w-[60%] px-1 py-1"
+            <h3 class="w-10 text-[14pt] text-right">{{inputsCoinTwo.coin.sigla}}</h3>
+            <input type="number" class="border-none focus:rign-0 bg-[#f1f1f1] mx-1 focus:ring-0 w-[60%] px-1 py-1" min="0"
             v-model="inputsCoinTwo.value"
             @input="inputsValue(2)"
             >

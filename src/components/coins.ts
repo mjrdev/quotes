@@ -1,22 +1,18 @@
 export const coins = [
   {
-    name: "Real", sigla: "BRL", defaultValue: 1.00, symbol: "R$"
+    name: "Real", sigla: "BRL"
   },
   {
-    name: "Dolar", sigla: "USD", defaultValue: 1.00, symbol: "US$"
+    name: "Dolar", sigla: "USD"
   },
   {
-    name: "Euro", sigla: "EUR", defaultValue: 1.00, symbol: "€"
+    name: "Euro", sigla: "EUR"
   },
   {
-    name: "Bitcoin", sigla: "BTC", defaultValue: 1.00, symbol: "₿"
+    name: "Peso Argentino", sigla: "ARS"
   }
 ]
 
 export type Coin = {
-  name: string, sigla: string, defaultValue: number, symbol: string
-}
-
-export type Current = {
-  value: number
+  name: string, sigla: string
 }
